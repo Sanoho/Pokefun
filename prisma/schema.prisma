@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+}
+
+model Pokemon {
+  id Int @id @default(autoincrement())
+  name  String
+  image String
+  type  String @default("normal")
+  hp  Int
+  attack  Int
+  speed Int
+  defense Int @default(1)
+  spriteFront  String
+  spriteBack  String
+  shinyFront String
+  shinyBack String
+  reply String
+  trainers  PokemonTeam[]
+}
+
+model User {
+  id  Int @id @default(autoincrement())
+  name  String
+  email String  @unique
+  password  String
+  passwordConfirmation   String
+  age Int
+  bio String?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  pokemons  PokemonTeam[]
+}
+
+model PokemonTeam {
+  pokemon Pokemon @relation(fields: [pokemonId], references: [id])
+  pokemonId Int
+  trainer User @relation(fields: [trainerId], references: [id])
+  trainerId Int
+  assignedAt DateTime @default(now())
+
+  @@id([pokemonId, trainerId])
+}
