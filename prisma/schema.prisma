@@ -14,6 +14,7 @@ model Pokemon {
   name  String
   image String
   type  String @default("normal")
+  secondaryType String?
   hp  Int
   attack  Int
   speed Int
