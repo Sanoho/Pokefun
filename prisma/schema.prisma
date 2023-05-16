@@ -24,20 +24,29 @@ model Pokemon {
   shinyFront String
   shinyBack String
   reply String
+  wins  Int @default(0)
+  evolveAt  Int?
+  canEvolve Boolean @default(false)
   trainers  PokemonTeam[]
 }
 
 model User {
   id  Int @id @default(autoincrement())
-  name  String
+  username  String  @unique
+  firstName String
+  lastName  String
   email String  @unique
   password  String
   passwordConfirmation   String
   age Int
   bio String?
+  coins Int @default(20)
+  badges  Int @default(0)
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   pokemons  PokemonTeam[]
+  friendedBy friends[]  @relation("friendsWith")
+  friendsWith friends[] @relation("friend")
 }
 
 model PokemonTeam {
@@ -48,4 +57,15 @@ model PokemonTeam {
   assignedAt DateTime @default(now())
 
   @@id([pokemonId, trainerId])
+}
+
+model friends {
+  friend  User  @relation("friend" ,fields: [friendId], references: [id])
+  friendId  Int
+  friendsWith  User  @relation("friendsWith" ,fields: [friendsWithId], references: [id])
+  friendsWithId  Int
+  assignedAt  DateTime  @default(now())
+  accepted  Boolean @default(false)
+  
+  @@id([friendId, friendsWithId])
 }
