@@ -26,7 +26,7 @@ model Pokemon {
   reply String
   wins  Int @default(0)
   evolveAt  Int?
-  canEvolve Boolean @default(false)
+  canEvolve Boolean @default(false) 
   trainers  PokemonTeam[]
 }
 
@@ -45,8 +45,8 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   pokemons  PokemonTeam[]
-  friendedBy friends[]  @relation("friendsWith")
-  friendsWith friends[] @relation("friend")
+  friendedBy Friend[]  @relation("friendsWith")
+  friendsWith Friend[] @relation("friend")
 }
 
 model PokemonTeam {
@@ -59,7 +59,7 @@ model PokemonTeam {
   @@id([pokemonId, trainerId])
 }
 
-model friends {
+model Friend {
   friend  User  @relation("friend" ,fields: [friendId], references: [id])
   friendId  Int
   friendsWith  User  @relation("friendsWith" ,fields: [friendsWithId], references: [id])
