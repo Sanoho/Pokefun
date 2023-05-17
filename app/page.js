@@ -1,21 +1,20 @@
 import "./page.css";
-import { PrismaClient } from "@prisma/client";
+// import prisma from "../lib/prisma";
 import Link from "next/link";
 
-const prisma = new PrismaClient();
-
-async function main() {
-  // ... you will write your Prisma Client queries here
-  const allPokemon = await prisma.pokemon.findMany();
-  console.log(allPokemon);
-  return allPokemon;
-}
+// async function main() {
+//   // ... you will write your Prisma Client queries here
+//   const allPokemon = await prisma.pokemon.findMany();
+//   return allPokemon;
+// }
 
 export default async function Home() {
-  const data = await main();
+  // const data = await main();
+  // console.log(data);
   return (
     <main>
       <div className="center-on-page">
+        <audio id="audio" src="./pokeCenter.mp3" controls autoPlay />
         <img
           className="bulba"
           src="https://projectpokemon.org/images/normal-sprite/bulbasaur.gif"
@@ -32,7 +31,7 @@ export default async function Home() {
           className="pika"
           src="https://projectpokemon.org/images/normal-sprite/pikachu.gif"
         />
-        <Link href="/login">
+        <Link href="/api/auth/login?returnTo=/dashboard">
           <div className="pokeball">
             <div className="pokeball__button"></div>
           </div>
