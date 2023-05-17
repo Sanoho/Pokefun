@@ -1,6 +1,18 @@
 import "./page.css";
+import { PrismaClient } from "@prisma/client";
+import Link from "next/link";
 
-export default function Home() {
+const prisma = new PrismaClient();
+
+async function main() {
+  // ... you will write your Prisma Client queries here
+  const allPokemon = await prisma.pokemon.findMany();
+  console.log(allPokemon);
+  return allPokemon;
+}
+
+export default async function Home() {
+  const data = await main();
   return (
     <main>
       <div className="center-on-page">
@@ -20,9 +32,11 @@ export default function Home() {
           className="pika"
           src="https://projectpokemon.org/images/normal-sprite/pikachu.gif"
         />
-        <div className="pokeball">
-          <div className="pokeball__button"></div>
-        </div>
+        <Link href="/login">
+          <div className="pokeball">
+            <div className="pokeball__button"></div>
+          </div>
+        </Link>
       </div>
     </main>
   );
