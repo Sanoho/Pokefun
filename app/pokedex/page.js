@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import prisma from "@/lib/prisma";
 
 async function main() {
@@ -11,7 +10,7 @@ export default async function PokeDex() {
   const pokemons = data.map((pokemon) => {
     return (
       <div key={pokemon.id}>
-        <div>
+        <div className="border-solid border-2 border-sky-500">
           <div>
             <img className="h-80" alt="Pokemon pic" src={pokemon.image} />
           </div>
@@ -25,7 +24,6 @@ export default async function PokeDex() {
   });
   return (
     <div>
-      <Navbar />
       <h1>Pokedex</h1>
       <div>{pokemons}</div>;
     </div>
