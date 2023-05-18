@@ -21,7 +21,7 @@ export default async function Home() {
           className="pika"
           src="https://projectpokemon.org/images/normal-sprite/pikachu.gif"
         />
-        <Link href="/api/auth/login">
+        <Link href="/api/auth/login?returnTo=/main">
           <div className="pokeball">
             <div className="pokeball__button"></div>
           </div>
