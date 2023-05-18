@@ -16,8 +16,8 @@ export default function Main() {
             <div className="my-5">PokeDex</div>
           </Link>
         </div>
-        <div className="col-start-2 col-end-4"></div>
-        <Profile className="col-start-5 col-span-1 text-right" />
+        <div className="col-start-2 col-end-5"></div>
+        <Profile className="col-start-1 col-span-1" />
       </div>
       <Footer />
     </div>

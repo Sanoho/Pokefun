@@ -26,7 +26,8 @@ body {
 /* audio */
 .audio {
   position: relative;
-  top: 25%;
+  top: 24.5%;
+  left: 0.8%;
   height: 10px;
 }
 

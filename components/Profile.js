@@ -7,11 +7,12 @@ export default function Profile() {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
+  console.log(user);
 
   return (
     user && (
-      <div className="border-solid border-2 border-sky-500 align right">
-        <img src={user.picture} alt={user.name} />
+      <div className="bg-cyan-400">
+        <img className="w-48 rounded-full" src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
       </div>
