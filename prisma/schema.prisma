@@ -45,7 +45,6 @@ model User {
   lastName               String
   email                  String  @unique
   password               String
-  passwordConfirmation   String
   age                    Int
   bio                    String?
   coins                  Int @default(20)
@@ -71,9 +70,11 @@ model VerificationToken {
 model Pokemon {
   id            Int @id @default(autoincrement())
   name          String
+  nickname      String?
   image         String
   type          String @default("normal")
   secondaryType String?
+  details       String?
   hp            Int
   attack        Int
   speed         Int

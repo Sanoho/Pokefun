@@ -23,6 +23,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+/* audio */
+.audio {
+  position: relative;
+  top: 25%;
+  height: 10px;
+}
+
 /* Pokemon gif */
 .bulba {
   position: relative;
@@ -56,9 +63,16 @@ body {
   left: 52%;
 }
 
+.mew {
+  position: fixed;
+  height: 600px;
+  width: 800px;
+  bottom: 7%;
+}
+
 /* Poké Styles */
 .pokeball {
-  position: fixed;
+  position: absolute;
   bottom: 10%;
   left: 20%;
   width: 100px;
