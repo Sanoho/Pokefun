@@ -1,3 +1,4 @@
+// 'use client' makes this module client-side
 "use client";
 import Link from "next/link";
 import Footer from "@/components/Footer";
@@ -8,13 +9,13 @@ import { useEffect } from "react";
 export default function Main() {
   const { user, error, isLoading } = useUser();
   const findUser = () => {
-    console.log(user);
+    // check if user is in the DB, if not, fetch serverless function and POST/create new instance
     if (user) {
       fetch("/api/findOrCreate", {
         method: "POST",
         body: JSON.stringify({
           email: user.email,
-          username: user.nickname,
+          username: user.nickname || user.username,
           name: user.name,
           picture: user.picture,
         }),
@@ -23,17 +24,15 @@ export default function Main() {
         },
       })
         .then((resp) => resp.json())
-        .then((data) => console.log(data));
+        .then((data) => data);
     }
   };
   useEffect(() => {
     findUser();
   }, [user]);
-  // const user = require("pages/api/findOrCreate");
-  // console.log(user);
+
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="grid grid-cols-5 gap-5">
         <div className="col-start-1 col-span-1 ml-3">
           {/* <Link href="/pokepark"> */}

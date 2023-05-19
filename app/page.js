@@ -1,7 +1,17 @@
+// "use client";
+// import { useUser } from "@auth0/nextjs-auth0/client";
+// import { useRouter } from "next/navigation";
+
 import "./page.css";
 import Link from "next/link";
 
 export default async function Home() {
+  // const { user } = useUser();
+  // const router = useRouter();
+
+  // if (user) {
+  //   router.push("/main");
+  // }
   return (
     <main>
       <div className="center-on-page">

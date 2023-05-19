@@ -15,7 +15,9 @@ const Navbar = () => {
   return (
     user && (
       <div className="nav">
-        <div className="text-2xl text-center text-black">FAQ</div>
+        <Link href="/faq">
+          <div className="text-2xl text-center text-black">FAQ</div>
+        </Link>
         <Link href="/main">
           <div className="text-6xl text-yellow-200 text-center">PokeFun</div>
         </Link>
