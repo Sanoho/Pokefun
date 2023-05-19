@@ -1,3 +1,4 @@
+"use client";
 import "./park.css";
 const numBushes = 50;
 const numBalls = 5;

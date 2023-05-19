@@ -1,0 +1,23 @@
+import prisma from "@/lib/prisma";
+
+module.exports = async (req, res) => {
+  const username = req.body.username;
+  const user = await prisma.user.findUnique({
+    where: {
+      username,
+    },
+  });
+
+  if (user) {
+    res.send({ user: user });
+  }
+  const createdUser = await prisma.user.create({
+    data: {
+      email: req.body.email,
+      username: req.body.username,
+      name: req.body.name,
+      picture: req.body.picture,
+    },
+  });
+  res.status(200).send(createdUser);
+};
