@@ -1,19 +1,22 @@
 "use client";
 import React from "react";
-import { useUser } from "@auth0/nextjs-auth0/client";
+import { useCurrentUser } from "@/app/context/currentUserContext";
 
 export default function Profile() {
-  const { user, error, isLoading } = useUser();
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+  const currentUser = useCurrentUser();
 
   return (
-    user && (
+    currentUser && (
       <div className="bg-cyan-400">
-        <img className="w-48 rounded-full" src={user.picture} alt={user.name} />
-        <h2>{user.nickname}</h2>
-        <p>{user.email}</p>
+        <img
+          className="w-48 rounded-full"
+          src={currentUser.picture}
+          alt={currentUser.name}
+        />
+        <h2>{currentUser.username}</h2>
+        <p>{currentUser.email}</p>
+        <p>{currentUser.coins}</p>
+        <p>{currentUser.friendsWith}</p>
       </div>
     )
   );

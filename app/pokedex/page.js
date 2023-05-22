@@ -1,31 +1,43 @@
 import prisma from "@/lib/prisma";
-
-async function main() {
-  const allPokemon = await prisma.pokemon.findMany();
-  return allPokemon;
-}
+import "../styles/pokedex.css";
 
 export default async function PokeDex() {
-  const data = await main();
-  const pokemons = data.map((pokemon) => {
+  const allPokemon = await prisma.pokemon.findMany();
+  const pokemons = allPokemon.map((pokemon) => {
     return (
-      <div key={pokemon.id}>
-        <div className="border-solid border-2 border-sky-500">
+      <div
+        key={pokemon.id}
+        style={{
+          background: pokemon.primeTypeColor,
+        }}
+        className="max-w-sm p-4 m-4 rounded overflow-hidden shadow-2xl bg-slate-300 transform transition-all duration-200 hover:scale-95 z-10"
+      >
+        <div>
           <div>
             <img className="h-80" alt="Pokemon pic" src={pokemon.image} />
           </div>
-          <div>{pokemon.name}</div>
-          <i>
-            {pokemon.type}/{pokemon.secondaryType}
-          </i>
+          <div className="pokename">{pokemon.name}</div>
+          <div className="type-holder">
+            <p
+              className="type"
+              style={{
+                background: pokemon.primeTypeColor,
+              }}
+            >
+              {pokemon.type}
+            </p>
+            <p className="type" style={{ background: pokemon.secTypeColor }}>
+              {pokemon.secondaryType}
+            </p>
+          </div>
         </div>
       </div>
     );
   });
   return (
-    <div>
-      <h1>Pokedex</h1>
-      <div>{pokemons}</div>;
+    <div className="card-container">
+      {/* <h1 className="text-xl font-bold text-center text-white mb-2">Pokedex</h1> */}
+      {pokemons}
     </div>
   );
 }

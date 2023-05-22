@@ -27,29 +27,31 @@ model User {
 }
 
 model Pokemon {
-  id            Int @id @default(autoincrement())
-  name          String
-  nickname      String?
-  image         String
-  type          String @default("normal")
-  secondaryType String?
-  details       String?
-  weight        String?
-  height        String?
-  hp            Int
-  attack        Int
-  speed         Int
-  defense       Int @default(1)
-  spriteFront   String
-  spriteBack    String
-  shinyFront    String
-  shinyBack     String
-  reply         String
-  wins          Int @default(0)
-  evolveAt      Int?
-  canEvolve     Boolean @default(false) 
-  shiny         Boolean @default(false)
-  trainers      PokemonTeam[]
+  id                 Int @id @default(autoincrement())
+  name               String
+  nickname           String?
+  image              String
+  type               String @default("normal")
+  secondaryType      String?
+  details            String?
+  weight             String?
+  height             String?
+  hp                 Int
+  attack             Int
+  speed              Int
+  defense            Int @default(1)
+  spriteFront        String
+  spriteBack         String
+  shinyFront         String
+  shinyBack          String
+  reply              String
+  wins               Int @default(0)
+  evolveAt           Int?
+  canEvolve          Boolean @default(false) 
+  shiny              Boolean @default(false)
+  primeTypeColor     String?
+  secTypeColor       String?
+  trainers           PokemonTeam[]
 }
 
 model PokemonTeam {

@@ -23,7 +23,8 @@ export default function Faq() {
       <ul>
         What are the future goals of this app?
         <ul>
-          - The plan is to make some mini games and a battle game of pokemon!!
+          - The plan is to make some mini games and a battle functionality of
+          pokemon!!
         </ul>
       </ul>
     </div>
