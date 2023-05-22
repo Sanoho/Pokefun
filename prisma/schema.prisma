@@ -34,6 +34,8 @@ model Pokemon {
   type          String @default("normal")
   secondaryType String?
   details       String?
+  weight        String?
+  height        String?
   hp            Int
   attack        Int
   speed         Int
@@ -46,6 +48,7 @@ model Pokemon {
   wins          Int @default(0)
   evolveAt      Int?
   canEvolve     Boolean @default(false) 
+  shiny         Boolean @default(false)
   trainers      PokemonTeam[]
 }
 
