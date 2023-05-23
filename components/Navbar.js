@@ -3,6 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import "../app/styles/navbar.css";
+import logo from "../public/logo.png";
+import Image from "next/image";
 
 const Navbar = () => {
   const { user, error, isLoading } = useUser();
@@ -10,7 +12,11 @@ const Navbar = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   if (!user)
-    return <div className="text-6xl text-yellow-200 text-center">PokeFun</div>;
+    return (
+      <div className="nav">
+        <Image className="logo" src={logo} alt="logo" />
+      </div>
+    );
 
   return (
     user && (
@@ -153,7 +159,9 @@ const Navbar = () => {
           </button>
         </Link>
         <Link href="/main">
-          <div className="text-6xl text-yellow-200 text-center">PokeFun</div>
+          <div className="app-name">
+            <Image className="logo" src={logo} alt="logo" />
+          </div>
         </Link>
         <div>
           <a href="/api/auth/logout">
