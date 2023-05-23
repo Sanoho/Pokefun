@@ -5,11 +5,19 @@
   align-items: center;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
-  background-color: #1b1d21;
+  background-color: #1b1d21b1;
+  top: 0;
+  position: sticky;
+  z-index: 999;
+}
+
+.coin {
+  color: yellow;
+  font-size: 20px;
 }
 
 .logo {
-  width: 200px;
+  width: 150px;
 }
 
 .nav-button {
@@ -27,6 +35,11 @@
     8.7px 8.7px 17.9px rgba(0, 0, 0, 0.024),
     11.3px 11.3px 33.4px rgba(0, 0, 0, 0.023),
     20px 20px 80px rgba(0, 0, 0, 0.02);
+}
+
+.badges {
+  color: yellow;
+  font-size: 20px;
 }
 
 .pika1 {

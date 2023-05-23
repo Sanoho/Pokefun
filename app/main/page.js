@@ -1,10 +1,10 @@
 // 'use client' makes this module client-side
 "use client";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Profile from "@/components/Profile";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useEffect } from "react";
+import Sidebar from "@/components/Sidebar";
 
 export default function Main() {
   const { user, error, isLoading } = useUser();
@@ -35,14 +35,7 @@ export default function Main() {
   return (
     <div>
       <div className="grid grid-cols-5 gap-5">
-        <div className="col-start-1 col-span-1 ml-3">
-          {/* <Link href="/pokepark"> */}
-          <div className="my-5 text-white">Poke Park</div>
-          {/* </Link> */}
-          <Link href="/pokedex">
-            <div className="my-5 text-white">PokeDex</div>
-          </Link>
-        </div>
+        <Sidebar />
         <div className="col-start-2 col-end-5 text-white"> Pokemon Team</div>
         <Profile className="col-start-1 col-span-1" />
       </div>

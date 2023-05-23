@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
+import EditProfie from "./EditProfile";
+import DeleteProfile from "./DeleteProfile";
+import "../app/styles/profile.css";
 
 export default function Profile() {
   const currentUser = useCurrentUser();
@@ -15,8 +18,11 @@ export default function Profile() {
         />
         <h2>{currentUser.username}</h2>
         <p>{currentUser.email}</p>
-        <p>{currentUser.coins}</p>
         <p>{currentUser.friendsWith}</p>
+        <div className="update">
+          <EditProfie />
+          <DeleteProfile />
+        </div>
       </div>
     )
   );

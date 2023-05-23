@@ -14,6 +14,7 @@ export function UserContextProvider({ children }) {
     age: null,
     bio: "",
     coins: 0,
+    badges: 0,
     pokemons: [],
     friendsWith: [],
   });
@@ -43,6 +44,7 @@ export function UserContextProvider({ children }) {
       age: userData.user.age,
       bio: userData.user.bio,
       coins: userData.user.coins,
+      badges: userData.user.badges,
       friendsWith: [userData.user.friendsWith],
     });
     return userData;
