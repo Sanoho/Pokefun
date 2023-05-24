@@ -34,7 +34,6 @@ export function UserContextProvider({ children }) {
     });
 
     const userData = await resp.json();
-    console.log(userData);
     setCurrentUser({
       email: userData.user.email,
       username: userData.user.username,
@@ -56,7 +55,9 @@ export function UserContextProvider({ children }) {
   }, [user]);
 
   return (
-    <UserContext.Provider value={currentUser}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+      {children}
+    </UserContext.Provider>
   );
 }
 

@@ -1,5 +1,44 @@
+.div {
+  border: solid 2px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px;
+}
+
+.row {
+  font-family: "Bangers";
+  font-style: italic;
+  color: rgb(196, 195, 195);
+  font-size: 15px;
+}
+
+.top {
+  border-left: solid 2px;
+  padding: 2px;
+}
+
+.head {
+  color: white;
+  font-family: "Bangers";
+  font-weight: bold;
+  font-size: 30px;
+  border-bottom: solid 1px white;
+  text-shadow: 0 0 1px rgb(0, 0, 0), 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+.details {
+  color: rgb(182, 182, 29);
+  font-size: 15px;
+  border-bottom: solid 1px white;
+}
+
 .update {
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border: solid 2px;
 }

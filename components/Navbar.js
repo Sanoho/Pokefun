@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useUser } from "@auth0/nextjs-auth0/client";
+import Image from "next/image";
 import "../app/styles/navbar.css";
 import logo from "../public/logo.png";
-import Image from "next/image";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { useCurrentUser } from "@/app/context/currentUserContext";
 
 const Navbar = () => {
   const { user, error, isLoading } = useUser();
-  const currentUser = useCurrentUser();
+  const { currentUser } = useCurrentUser();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;

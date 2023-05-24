@@ -1,0 +1,19 @@
+.faq {
+  display: grid;
+}
+
+.question {
+  font-family: "Bangers";
+  font-size: 35px;
+  color: white;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.answer {
+  font-family: "Bangers";
+  font-size: 25px;
+  color: white;
+  padding: 5px;
+  margin-left: 50px;
+}
