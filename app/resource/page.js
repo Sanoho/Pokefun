@@ -1,5 +1,5 @@
 export default async function Resource() {
-  retun(
+  return (
     <div>
       <div>
         Instrutors
