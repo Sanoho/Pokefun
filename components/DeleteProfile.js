@@ -1,24 +1,22 @@
 import { useCurrentUser } from "@/app/context/currentUserContext";
 import React from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function DeleteProfile() {
   const { currentUser, setCurrentUser } = useCurrentUser();
   const router = useRouter();
   const [openEdit, setOpenEdit] = React.useState(false);
 
-  console.log(currentUser);
-
-  const handleDeleteUser = () => {
+  const handleDeleteUser = async () => {
     if (currentUser) {
-      fetch("/api/delete", {
+      await fetch("/api/delete?email=" + currentUser.email, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
       setOpenEdit(false);
       alert("Profile deleted.");
       setCurrentUser(null);
-      router.push("/");
     }
   };
 
@@ -54,14 +52,15 @@ export default function DeleteProfile() {
                   >
                     Close
                   </button>
-
-                  <button
-                    className="bg-red-600 text-white active:bg-red-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => handleDeleteUser(currentUser)}
-                  >
-                    Delete
-                  </button>
+                  <Link href="api/auth/logout?federated">
+                    <button
+                      className="bg-red-600 text-white active:bg-red-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => handleDeleteUser(currentUser)}
+                    >
+                      Delete
+                    </button>
+                  </Link>
                 </div>
               </div>
             </form>

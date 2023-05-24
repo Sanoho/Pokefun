@@ -35,21 +35,21 @@ export function UserContextProvider({ children }) {
 
     const userData = await resp.json();
     setCurrentUser({
-      email: userData.user.email,
-      username: userData.user.username,
-      name: userData.user.name,
-      picture: userData.user.picture,
-      pokemons: [userData.user.pokemons],
-      age: userData.user.age,
-      bio: userData.user.bio,
-      coins: userData.user.coins,
-      badges: userData.user.badges,
-      friendsWith: [userData.user.friendsWith],
+      email: userData.email,
+      username: userData.username,
+      name: userData.name,
+      picture: userData.picture,
+      pokemons: [userData.pokemons],
+      age: userData.age,
+      bio: userData.bio,
+      coins: userData.coins,
+      badges: userData.badges,
+      friendsWith: [userData.friendsWith],
     });
     return userData;
   };
   useEffect(() => {
-    if (user) {
+    if (user && !currentUser.email) {
       const resp = getUser(user);
     }
   }, [user]);
