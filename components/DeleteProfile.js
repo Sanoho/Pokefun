@@ -1,11 +1,9 @@
 import { useCurrentUser } from "@/app/context/currentUserContext";
 import React from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function DeleteProfile() {
   const { currentUser, setCurrentUser } = useCurrentUser();
-  const router = useRouter();
   const [openEdit, setOpenEdit] = React.useState(false);
 
   const handleDeleteUser = async () => {

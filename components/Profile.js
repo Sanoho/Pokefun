@@ -7,7 +7,6 @@ import "../app/styles/profile.css";
 
 export default function Profile() {
   const { currentUser } = useCurrentUser();
-  console.log(currentUser);
 
   return (
     currentUser && (

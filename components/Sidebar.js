@@ -11,7 +11,9 @@ const Sidebar = () => {
       <Link href="/pokedex">
         <div className="my-5 text-white">PokeDex</div>
       </Link>
-      <div className="my-5 text-white">Mini games</div>
+      <Link href="/minigame">
+        <div className="my-5 text-white">Mini game</div>
+      </Link>
       <div className="my-5 text-white">Friends</div>
     </div>
   );

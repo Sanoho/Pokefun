@@ -1,0 +1,168 @@
+.title {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+}
+
+.teachers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.instr {
+  width: 550px;
+  border-radius: 50px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.site {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.next {
+  width: 180px;
+}
+
+.google {
+  position: relative;
+  font-family: "Public Sans";
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  font-size: 40px;
+  text-shadow: 0 0 1px white, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+.g {
+  color: blue;
+  animation: bounce 1s ease infinite 0.1s;
+}
+
+.o {
+  color: red;
+  animation: bounce 1s ease infinite 0.2s;
+}
+
+.o1 {
+  color: yellow;
+  animation: bounce 1s ease infinite 0.3s;
+}
+
+.g1 {
+  color: blue;
+  animation: bounce 1s ease infinite 0.4s;
+}
+
+.l {
+  color: green;
+  animation: bounce 1s ease infinite 0.5s;
+}
+
+.e {
+  color: red;
+  animation: bounce 1s ease infinite 0.6s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-55px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  58% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+  65% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.youtube {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  font-size: 40px;
+  text-shadow: 0 0 1px white, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  padding: 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.you {
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 0 0 1px white, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+.tube {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: red;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.prismaContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.prisma {
+  width: 60px;
+  height: 60px;
+}
+
+.prismaName {
+  font-size: 40px;
+  margin-left: 10px;
+  text-shadow: 2px 0.5px black;
+}
+
+.cohort {
+  margin-top: 20px;
+}
+
+.title2 {
+  display: flex;
+  justify-content: center;
+  color: yellow;
+  font-size: 30px;
+}
+
+.class {
+  display: flex;
+  justify-content: center;
+}
+
+.student {
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  border: solid 1px black;
+  flex: 50%;
+}
+
+.half {
+  padding: 10px;
+}

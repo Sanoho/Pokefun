@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 
-export default async function updateUser(req, res) {
+module.exports = async (req, res) => {
   const result = await prisma.user.update({
     where: {
       email: req.query.email,
@@ -8,9 +8,9 @@ export default async function updateUser(req, res) {
     data: {
       username: req.body.username,
       age: req.body.age,
-      image: req.body.picture,
+      picture: req.body.picture,
       bio: req.body.bio,
     },
   });
   res.status(200).send(result);
-}
+};

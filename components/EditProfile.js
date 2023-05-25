@@ -2,21 +2,52 @@ import React from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
 
 export default function EditProfie() {
-  const currentUser = useCurrentUser();
+  const { currentUser, setCurrentUser } = useCurrentUser();
   const [openEdit, setOpenEdit] = React.useState(false);
-  const [editDetails, setEditDetails] = React.useState({
-    username: "",
-    age: null,
-    picture: "",
-    bio: "",
-  });
+  const [editName, setEditName] = React.useState("");
+  const [editAge, setEditAge] = React.useState("");
+  const [editPicture, setEditPicture] = React.useState("");
+  const [editBio, setEditBio] = React.useState("");
+  //   const [editDetails, setEditDetails] = React.useState({
+  //     username: "",
+  //     age: null,
+  //     picture: "",
+  //     bio: "",
+  //   });
+
+  const handleEditOpen = (currentUser) => {
+    setEditName(currentUser.username);
+    setEditAge(currentUser.age);
+    setEditPicture(currentUser.picture);
+    setEditBio(currentUser.bio);
+    setOpenEdit(true);
+  };
+
+  const handleUpdate = (user) => {
+    if (currentUser) {
+      fetch("/api/updateUser?email=" + currentUser.email, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: editName,
+          age: editAge,
+          picture: editPicture,
+          bio: editBio,
+        }),
+      });
+      setCurrentUser(user);
+      setOpenEdit(false);
+    }
+  };
 
   return (
     <>
       <button
         className="bg-blue-500 text-white active:bg-blue-700 font-bold uppercase text-sm px-6 py-1 rounded shadow transform transition-all duration-200 hover:scale-95 z-10 cursor-pointer focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
-        onClick={() => setOpenEdit(true)}
+        onClick={() => handleEditOpen(currentUser)}
       >
         Edit
       </button>
@@ -45,6 +76,8 @@ export default function EditProfie() {
                       id="username"
                       type="text"
                       placeholder="Username"
+                      value={editName}
+                      onChange={(e) => setEditName(e.target.value)}
                     />
                   </label>
                   <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -53,6 +86,8 @@ export default function EditProfie() {
                       id="age"
                       type="integer"
                       placeholder="age"
+                      value={editAge}
+                      onChange={(e) => setEditAge(parseInt(e.target.value))}
                     />
                   </label>
                   <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -61,6 +96,8 @@ export default function EditProfie() {
                       id="pic"
                       type="text"
                       placeholder="image url"
+                      value={editPicture}
+                      onChange={(e) => setEditPicture(e.target.value)}
                     />
                   </label>
                   <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -69,6 +106,8 @@ export default function EditProfie() {
                       id="bio"
                       type="text"
                       placeholder="bio"
+                      value={editBio}
+                      onChange={(e) => setEditBio(e.target.value)}
                     />
                   </label>
                 </div>
@@ -77,7 +116,7 @@ export default function EditProfie() {
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setOpenEdit(false)}
+                    onClick={() => handleUpdate()}
                   >
                     Save Changes
                   </button>
