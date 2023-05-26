@@ -1,16 +1,16 @@
 import "../../styles/pokeId.css";
 
-export async function generateStaticParams() {
-  const allPokemon = await fetch("http://localhost:3000/api/findPokemon").then(
-    (res) => res.json()
-  );
+// export async function generateStaticParams() {
+//   const allPokemon = await fetch("http://localhost:3000/api/findPokemon").then(
+//     (res) => res.json()
+//   );
 
-  pokemon = allPokemon.map((pokemon) => pokemon);
+//   pokemon = allPokemon.map((pokemon) => pokemon);
 
-  return allPokemon.map((pokemon) => ({
-    slug: pokemon.slug,
-  }));
-}
+//   return allPokemon.map((pokemon) => ({
+//     slug: pokemon.slug,
+//   }));
+// }
 
 export default function PokemonPage({ params }) {
   const { slug } = params;
