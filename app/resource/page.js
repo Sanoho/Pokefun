@@ -1,9 +1,9 @@
 import "../styles/resource.css";
 import Image from "next/image";
-import Antonio from "../../public/Antonio.png";
-import Dj from "../../public/Dj.png";
-import next from "../../public/next.png";
-import prisma from "../../public/prisma.png";
+import Antonio from "../../public/resourcepics/Antonio.png";
+import Dj from "../../public/resourcepics/Dj.png";
+import next from "../../public/resourcepics/next.png";
+import prisma from "../../public/resourcepics/prisma.png";
 
 export default async function Resource() {
   return (
@@ -48,7 +48,7 @@ export default async function Resource() {
           <p className="student">The Prodigy, Andrew Hawileh</p>
           <p className="student">Diana Jordan</p>
           <p className="student">Joshua Hawke</p>
-          <p className="student">Reed Broadhead</p>
+          <p className="student">Reed Broadhead, JB</p>
         </div>
         <div className="half">
           <p className="student">Abdominal Aubs Loudenslager</p>

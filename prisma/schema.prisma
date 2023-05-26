@@ -28,7 +28,7 @@ model User {
 
 model Pokemon {
   id                 Int @id @default(autoincrement())
-  name               String
+  name               String @unique
   nickname           String?
   image              String
   type               String @default("normal")
@@ -49,6 +49,8 @@ model Pokemon {
   evolveAt           Int?
   canEvolve          Boolean @default(false) 
   shiny              Boolean @default(false)
+  main               Boolean @default(false)
+  cost               Int?
   primeTypeColor     String?
   secTypeColor       String?
   trainers           PokemonTeam[]

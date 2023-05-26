@@ -1,16 +1,23 @@
-.about {
-  display: flex;
-  justify-content: column;
+.aboutme {
+  display: grid;
+  grid-template:
+    "a b b "
+    "a b b "
+    "a c c ";
+  margin-top: 60px;
 }
 
 .avatar {
+  grid-area: a;
   padding: 30px;
   width: 400px;
 }
 
-.me {
-  display: flex;
-  justify-content: row;
+.text {
+  grid-area: b;
+  font-size: 1.4em;
+  margin-top: 60px;
+  color: white;
 }
 
 *,
@@ -25,13 +32,13 @@ h1 {
   font-weight: 700;
   letter-spacing: 0.15em;
   margin-bottom: 0.5em;
+  color: white;
 }
 
 .container {
+  grid-area: c;
   width: 80%;
   display: block;
-  margin: 100px auto;
-  text-align: center;
 }
 
 .pokeball3 {
@@ -48,6 +55,7 @@ h1 {
   transform-origin: bottom center;
 
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
   &:before {
     display: block;
     content: "";

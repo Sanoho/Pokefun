@@ -1,6 +1,20 @@
-import "../../styles/pokedex.css";
+import "../../styles/pokeId.css";
 
-export default function Page({ params }) {
+export async function generateStaticParams() {
+  const allPokemon = await fetch("http://localhost:3000/api/findPokemon").then(
+    (res) => res.json()
+  );
+
+  pokemon = allPokemon.map((pokemon) => pokemon);
+
+  return allPokemon.map((pokemon) => ({
+    slug: pokemon.slug,
+  }));
+}
+
+export default function PokemonPage({ params }) {
+  const { slug } = params;
+
   return (
     <div className="pokedex">
       <div className="left">
@@ -27,14 +41,14 @@ export default function Page({ params }) {
             <div className="buttontopPicture2"></div>
           </div>
           <div className="picture">
-            <img src={params.image} alt={params.name} height="170" />
+            <img src={params.sprite} alt={params.name} height="170" />
           </div>
           <div className="buttonbottomPicture"></div>
           <div className="speakers">
-            <div class="sp"></div>
-            <div class="sp"></div>
-            <div class="sp"></div>
-            <div class="sp"></div>
+            <div className="sp"></div>
+            <div className="sp"></div>
+            <div className="sp"></div>
+            <div className="sp"></div>
           </div>
         </div>
         <div className="bigbluebutton"></div>
@@ -74,18 +88,18 @@ export default function Page({ params }) {
           {params.details}
         </div>
         <div className="blueButtons1">
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
         </div>
         <div className="blueButtons2">
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
-          <div class="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
+          <div className="blueButton"></div>
         </div>
         <div className="miniButtonGlass4"></div>
         <div className="miniButtonGlass5"></div>

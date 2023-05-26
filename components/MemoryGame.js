@@ -11,6 +11,7 @@ import pic5 from "../public/memory/5.png";
 import pic6 from "../public/memory/6.png";
 import pic7 from "../public/memory/7.png";
 import pic8 from "../public/memory/8.png";
+import bg from "../public/memory/bg.png";
 import Image from "next/image";
 
 const board = [
@@ -49,13 +50,10 @@ export default function MemoryGame() {
   }, [moves]);
 
   //   const winCoins = async () => {
-  //     const updatedBalance = currentUser.wallet.balance + 100;
+  //     const updatedBalance = currentUser.coins + 5;
   //     setCurrentUser((prevUser) => ({
   //       ...prevUser,
-  //       wallet: {
-  //         ...prevUser.wallet,
-  //         balance: updatedBalance,
-  //       },
+  //          coins: updatedBalance
   //     }));
   //     await fetch("/api/updateCoins", {
   //       method: "POST",
@@ -70,14 +68,11 @@ export default function MemoryGame() {
   //   };
 
   //   const loseCoins = async () => {
-  //     if (currentUser.wallet.balance >= 50) {
-  //       const updatedBalance = currentUser.wallet.balance - 50;
+  //     if (currentUser.coins >= 2) {
+  //       const updatedBalance = currentUser.coins - 2;
   //       setCurrentUser((prevUser) => ({
   //         ...prevUser,
-  //         wallet: {
-  //           ...prevUser.wallet,
-  //           balance: updatedBalance,
-  //         },
+  //          coins: updatedBalance
   //       }));
   //       await fetch("/api/updateCoins", {
   //         method: "POST",
@@ -139,8 +134,8 @@ export default function MemoryGame() {
           <p>{`Moves - ${moves}`} / 28</p>
         </div>
         <div className="menu">
-          {gameOver === true ? <h3>GAME OVER!</h3> : null}
-          {gameWon === true ? <h3>CONGRATULATIONS!</h3> : null}
+          {gameOver === true ? <h3>GAME OVER!, Try again?</h3> : null}
+          {gameWon === true ? <h3>CONGRATULATIONS!, Try again?</h3> : null}
         </div>
         {showPlayButton ? (
           <button onClick={handlePlayButtonClick} className="play-btn">
@@ -151,6 +146,14 @@ export default function MemoryGame() {
             Reset
           </button>
         )}
+        <div className="direction">
+          Play the game to win some coins. It cost 2 to play but you can gain 5
+          in return. Make sure to pay attention and memorize where the cards
+          are. If you don't complete the game in 28 moves, you lose. Good luck
+          and have fun!!
+        </div>
+        <div className="ps">P.S looks like you have your own audience.</div>
+        <Image src={bg} alt="pokemon pics" className="bg" />
       </div>
       <div className="board">
         {boardData.map((data, i) => {

@@ -4,42 +4,36 @@ import { useCurrentUser } from "@/app/context/currentUserContext";
 export default function EditProfie() {
   const { currentUser, setCurrentUser } = useCurrentUser();
   const [openEdit, setOpenEdit] = React.useState(false);
-  const [editName, setEditName] = React.useState("");
-  const [editAge, setEditAge] = React.useState("");
-  const [editPicture, setEditPicture] = React.useState("");
-  const [editBio, setEditBio] = React.useState("");
-  //   const [editDetails, setEditDetails] = React.useState({
-  //     username: "",
-  //     age: null,
-  //     picture: "",
-  //     bio: "",
-  //   });
 
-  const handleEditOpen = (currentUser) => {
-    setEditName(currentUser.username);
-    setEditAge(currentUser.age);
-    setEditPicture(currentUser.picture);
-    setEditBio(currentUser.bio);
+  const handleEditOpen = () => {
     setOpenEdit(true);
   };
 
-  const handleUpdate = (user) => {
+  const handleSubmit = async () => {
     if (currentUser) {
-      fetch("/api/updateUser?email=" + currentUser.email, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: editName,
-          age: editAge,
-          picture: editPicture,
-          bio: editBio,
-        }),
-      });
-      setCurrentUser(user);
+      const fetchData = await fetch(
+        "/api/updateUser?email=" + currentUser.email,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: currentUser.username,
+            age: currentUser.age,
+            picture: currentUser.picture,
+            bio: currentUser.bio,
+          }),
+        }
+      );
+      setCurrentUser(fetchData);
       setOpenEdit(false);
     }
+  };
+
+  const handleChange = (event) => {
+    let name = event.target.name;
+    setCurrentUser({ ...currentUser, [name]: event.target.value });
   };
 
   return (
@@ -54,7 +48,10 @@ export default function EditProfie() {
       {openEdit ? (
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <form className="relative w-auto my-6 mx-auto max-w-3xl">
+            <form
+              className="relative w-auto my-6 mx-auto max-w-3xl"
+              onSubmit={() => handleSubmit()}
+            >
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -73,41 +70,41 @@ export default function EditProfie() {
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="username"
+                      name="username"
                       type="text"
                       placeholder="Username"
-                      value={editName}
-                      onChange={(e) => setEditName(e.target.value)}
+                      value={currentUser.username}
+                      onChange={(e) => handleChange(e)}
                     />
                   </label>
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="age"
+                      name="age"
                       type="integer"
                       placeholder="age"
-                      value={editAge}
-                      onChange={(e) => setEditAge(parseInt(e.target.value))}
+                      value={currentUser.age}
+                      onChange={(e) => handleChange(e)}
                     />
                   </label>
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="pic"
+                      name="pic"
                       type="text"
                       placeholder="image url"
-                      value={editPicture}
-                      onChange={(e) => setEditPicture(e.target.value)}
+                      value={currentUser.picture}
+                      onChange={(e) => handleChange(e)}
                     />
                   </label>
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="bio"
+                      name="bio"
                       type="text"
                       placeholder="bio"
-                      value={editBio}
-                      onChange={(e) => setEditBio(e.target.value)}
+                      value={currentUser.bio}
+                      onChange={(e) => handleChange(e)}
                     />
                   </label>
                 </div>
@@ -115,8 +112,7 @@ export default function EditProfie() {
                 <div className="flex items-center justify-end p-2 border-t border-solid border-slate-200 rounded-b">
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => handleUpdate()}
+                    type="submit"
                   >
                     Save Changes
                   </button>

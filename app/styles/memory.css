@@ -1,12 +1,9 @@
 .goal {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   color: yellow;
-  margin: 10px;
-}
-
-.game-container {
-  margin-left: 220px;
+  margin: 15px;
+  text-align: center;
 }
 
 .test-title {
@@ -14,7 +11,7 @@
 }
 
 .container {
-  margin-left: 220px;
+  margin-left: 180px;
   display: flex;
   flex-direction: row;
 }
@@ -98,9 +95,39 @@
 }
 .menu {
   display: flex;
+  color: white;
 }
 
 .menu p {
   font-size: 20px;
   font-weight: 600;
+}
+
+.play-btn {
+  background-color: white;
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-top: 40px;
+}
+
+.reset-btn {
+  background-color: white;
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-top: 40px;
+}
+
+.direction {
+  color: white;
+  font-size: 20px;
+  margin-top: 80px;
+}
+
+.ps {
+  color: white;
+  margin-top: 80px;
+}
+
+.bg {
+  margin-top: 80px;
 }

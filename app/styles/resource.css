@@ -3,6 +3,7 @@
   justify-content: center;
   color: white;
   font-size: 50px;
+  /* text-shadow: -1px 1px 0 black, 1px 1px 0 black, 1px -1px 0 black; */
 }
 
 .teachers {
@@ -29,7 +30,7 @@
 }
 
 .next {
-  width: 180px;
+  padding-top: 0.5rem;
 }
 
 .google {
@@ -134,8 +135,10 @@
 
 .prismaName {
   font-size: 40px;
+  font-weight: bold;
   margin-left: 10px;
-  text-shadow: 2px 0.5px black;
+  color: black;
+  text-shadow: -1px 1px 0 gray, 1px 1px 0 grey, 1px -1px 0 grey;
 }
 
 .cohort {

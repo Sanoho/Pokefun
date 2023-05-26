@@ -34,6 +34,7 @@ export function UserContextProvider({ children }) {
     });
 
     const userData = await resp.json();
+    console.log(userData);
     setCurrentUser({
       email: userData.email,
       username: userData.username,

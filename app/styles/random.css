@@ -1,0 +1,62 @@
+.randomcard {
+  border: 3px solid grey;
+  border-radius: 10px;
+  margin: 5px;
+  height: 405px;
+}
+
+.random {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cost {
+  color: yellow;
+  text-align: end;
+  margin-bottom: 10px;
+}
+
+.img {
+  width: 200px;
+  margin: 50px;
+}
+
+.pokename {
+  font-family: "Bangers";
+  font-size: 30px;
+  color: yellow;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+.type-holder {
+  display: flex;
+  flex-direction: row;
+  gap: 4pz;
+}
+
+.type-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.type {
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 4px 6px;
+  color: antiquewhite;
+}
+
+.collect {
+  font-size: 13px;
+  border-radius: 20px;
+  padding: 4px 6px;
+  color: yellow;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  /* background-color: linear rgb(33, 70, 233); */
+  background-image: linear-gradient(rgb(33, 70, 233), black);
+}
