@@ -6,7 +6,7 @@ export default function RandomPoke() {
   const [pokemonList, setPokemonList] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:3000/api/findPokemon")
+    fetch("../api/findPokemon")
       .then((res) => res.json())
       .then((pokemon) => setPokemonList(pokemon));
   }, []);

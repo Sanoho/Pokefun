@@ -1,9 +1,8 @@
 import "../styles/pokedex.css";
+import prisma from "@/lib/prisma";
 
 export default async function PokeDex() {
-  const allPokemon = await fetch("http://localhost:3000/api/findPokemon").then(
-    (res) => res.json()
-  );
+  const allPokemon = await prisma.pokemon.findMany();
   const pokemons = allPokemon.map((pokemon) => {
     return (
       <div
