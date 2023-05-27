@@ -1,11 +1,11 @@
-import Link from "next/link";
+import MemoryGame from "@/components/sidebar/MemoryGame";
+import "../styles/memory.css";
 
-export default function Minigame() {
+export default function Memory() {
   return (
     <div>
-      <Link href="/minigame/memory">
-        <p>Memory Game</p>
-      </Link>
+      <h1 className="goal">Match the cards!</h1>
+      <MemoryGame />
     </div>
   );
 }

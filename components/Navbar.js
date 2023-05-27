@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "../app/styles/navbar.css";
-import logo from "../public/logo.png";
+import logo from "../public/footer/logo.png";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { useCurrentUser } from "@/app/context/currentUserContext";
 

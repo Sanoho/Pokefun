@@ -1,28 +1,28 @@
 "use client";
 
-import "../app/styles/memory.css";
+import "../../app/styles/memory.css";
 import { useState, useEffect } from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
-import pic1 from "../public/memory/1.png";
-import pic2 from "../public/memory/2.png";
-import pic3 from "../public/memory/3.png";
-import pic4 from "../public/memory/4.png";
-import pic5 from "../public/memory/5.png";
-import pic6 from "../public/memory/6.png";
-import pic7 from "../public/memory/7.png";
-import pic8 from "../public/memory/8.png";
-import bg from "../public/memory/bg.png";
+import pic1 from "../../public/memory/1.png";
+import pic2 from "../../public/memory/2.png";
+import pic3 from "../../public/memory/3.png";
+import pic4 from "../../public/memory/4.png";
+import pic5 from "../../public/memory/5.png";
+import pic6 from "../../public/memory/6.png";
+import pic7 from "../../public/memory/7.png";
+import pic8 from "../../public/memory/8.png";
+import bg from "../../public/memory/bg.png";
 import Image from "next/image";
 
 const board = [
-  <Image className="card-img" src={pic1} />,
-  <Image className="card-img" src={pic2} />,
-  <Image className="card-img" src={pic3} />,
-  <Image className="card-img" src={pic4} />,
-  <Image className="card-img" src={pic5} />,
-  <Image className="card-img" src={pic6} />,
-  <Image className="card-img" src={pic7} />,
-  <Image className="card-img" src={pic8} />,
+  <Image className="card-img" src={pic1} alt="card" />,
+  <Image className="card-img" src={pic2} alt="card" />,
+  <Image className="card-img" src={pic3} alt="card" />,
+  <Image className="card-img" src={pic4} alt="card" />,
+  <Image className="card-img" src={pic5} alt="card" />,
+  <Image className="card-img" src={pic6} alt="card" />,
+  <Image className="card-img" src={pic7} alt="card" />,
+  <Image className="card-img" src={pic8} alt="card" />,
 ];
 
 export default function MemoryGame() {
@@ -44,50 +44,46 @@ export default function MemoryGame() {
   useEffect(() => {
     if (matchedCards.length == 16) {
       setGameWon(true);
+      winCoins();
     } else if (moves === 30) {
       setGameOver(true);
     }
   }, [moves]);
 
-  //   const winCoins = async () => {
-  //     const updatedBalance = currentUser.coins + 5;
-  //     setCurrentUser((prevUser) => ({
-  //       ...prevUser,
-  //          coins: updatedBalance
-  //     }));
-  //     await fetch("/api/updateCoins", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         email: currentUser.email,
-  //         updatedBalance,
-  //       }),
-  //     });
-  //   };
+  const winCoins = async () => {
+    const updatedBalance = currentUser.coins + 5;
+    setCurrentUser({ ...currentUser, coins: updatedBalance });
+    await fetch("/api/updateCoins", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: currentUser.email,
+        updatedBalance,
+      }),
+    });
+  };
 
-  //   const loseCoins = async () => {
-  //     if (currentUser.coins >= 2) {
-  //       const updatedBalance = currentUser.coins - 2;
-  //       setCurrentUser((prevUser) => ({
-  //         ...prevUser,
-  //          coins: updatedBalance
-  //       }));
-  //       await fetch("/api/updateCoins", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           email: currentUser.email,
-  //           updatedBalance,
-  //         }),
-  //       });
-  //     }
-  //   };
+  const loseCoins = async () => {
+    if (currentUser.coins >= 2) {
+      const updatedBalance = currentUser.coins - 2;
+      setCurrentUser({ ...currentUser, coins: updatedBalance });
+      await fetch("/api/updateCoins", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: currentUser.email,
+          updatedBalance,
+        }),
+      });
+    }
+  };
 
   const initialize = () => {
+    loseCoins();
     shuffle();
     setGameOver(false);
     setFlippedCards([]);

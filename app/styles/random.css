@@ -3,6 +3,11 @@
   border-radius: 10px;
   margin: 5px;
   height: 405px;
+  transition: 0.4s ease-in-out;
+}
+
+.randomcard:hover {
+  scale: 1.04;
 }
 
 .random {
@@ -54,9 +59,14 @@
 .collect {
   font-size: 13px;
   border-radius: 20px;
+  border: white 1px solid;
   padding: 4px 6px;
   color: yellow;
   text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-  /* background-color: linear rgb(33, 70, 233); */
   background-image: linear-gradient(rgb(33, 70, 233), black);
+  transition: 0.4s ease-in-out;
+}
+
+.collect:hover {
+  scale: 0.95;
 }

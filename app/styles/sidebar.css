@@ -1,0 +1,27 @@
+.sidebar {
+  width: 150px;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+
+.linkContainer {
+  color: white;
+}
+
+.sideLinks {
+  font-family: "Bangers";
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  height: 45px;
+  text-align: center;
+  padding-top: 8px;
+  transition: 0.4s ease-in-out;
+  border-radius: 50px;
+}
+
+.sideLinks:hover {
+  background-color: yellow;
+  color: black;
+  transition: 0.4s ease-in-out;
+}

@@ -11,7 +11,7 @@
 }
 
 .container {
-  margin-left: 180px;
+  margin-left: 100px;
   display: flex;
   flex-direction: row;
 }
@@ -104,30 +104,51 @@
 }
 
 .play-btn {
-  background-color: white;
-  border-radius: 20px;
+  color: white;
+  /* font-family: "Bangers"; */
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 20px;
+  transition: 0.4s ease-in-out;
+  border-radius: 50px;
   padding: 3px 10px;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+.play-btn:hover {
+  background-color: yellow;
+  color: black;
+  transition: 0.4s ease-in-out;
 }
 
 .reset-btn {
-  background-color: white;
-  border-radius: 20px;
+  color: white;
+  /* font-family: "Bangers"; */
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.4s ease-in-out;
+  border-radius: 50px;
   padding: 3px 10px;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+.reset-btn:hover {
+  background-color: yellow;
+  color: black;
+  transition: 0.4s ease-in-out;
 }
 
 .direction {
   color: white;
   font-size: 20px;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .ps {
   color: white;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .bg {
-  margin-top: 80px;
+  margin-top: 60px;
 }

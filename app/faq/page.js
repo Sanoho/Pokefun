@@ -25,14 +25,20 @@ export default function Faq() {
         </ul>
       </ul>
       <ul className="question">
+        What is the PokeMart?
+        <ul className="answer">
+          - You can purchase pokemon and add them to your collection in the
+          PokeMart.
+        </ul>
+      </ul>
+      <ul className="question">
         Why was this app made?
         <ul className="answer"> - To showcase how awesome pokemon is.</ul>
       </ul>
       <ul className="question">
         What are the future goals of this app?
         <ul className="answer">
-          - The plan is to make some mini games and a battle functionality of
-          pokemon!!
+          - The plan is to add a trading system and battle functionality!!
         </ul>
       </ul>
     </div>

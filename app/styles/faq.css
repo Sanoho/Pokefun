@@ -1,13 +1,15 @@
 .faq {
   display: grid;
+  text-align: center;
 }
 
 .question {
   font-family: "Bangers";
   font-size: 35px;
-  color: white;
+  color: yellow;
   padding: 5px;
   margin-top: 30px;
+  letter-spacing: 2px;
 }
 
 .answer {
@@ -15,5 +17,5 @@
   font-size: 25px;
   color: white;
   padding: 5px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
 }

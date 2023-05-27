@@ -7,7 +7,7 @@ export default function PokemonTeam() {
 
   if (team.length <= 0) {
     return (
-      <div className="col-start-2 col-end-5 text-white">
+      <div>
         <h1 className="font-bold text-2xl tracking-wide uppercase">
           Go get some pokemon!!
         </h1>

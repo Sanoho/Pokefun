@@ -3,7 +3,7 @@ import React from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
 import EditProfie from "./EditProfile";
 import DeleteProfile from "./DeleteProfile";
-import "../app/styles/profile.css";
+import "../../app/styles/profile.css";
 
 export default function Profile() {
   const { currentUser } = useCurrentUser();

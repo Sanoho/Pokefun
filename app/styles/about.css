@@ -1,22 +1,33 @@
 .aboutme {
-  display: grid;
-  grid-template:
-    "a b b "
-    "a b b "
-    "a c c ";
+  display: flex;
+  flex-direction: row;
   margin-top: 60px;
+}
+
+.imageContainer {
+  padding: 30px;
+  width: 40%;
 }
 
 .avatar {
-  grid-area: a;
-  padding: 30px;
-  width: 400px;
+  width: 450px;
+  height: 500px;
+}
+
+.content {
+  width: 80%;
+  padding: 15px;
+}
+
+.header {
+  font-family: "Bangers";
+  font-size: 40px;
+  color: yellow;
 }
 
 .text {
-  grid-area: b;
   font-size: 1.4em;
-  margin-top: 60px;
+  margin-top: 40px;
   color: white;
 }
 
@@ -36,9 +47,10 @@ h1 {
 }
 
 .container {
-  grid-area: c;
-  width: 80%;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .pokeball3 {
@@ -143,4 +155,13 @@ h1 {
   100% {
     transform: translateX(0px) rotate(0deg);
   }
+}
+
+.gen1container {
+  margin-left: 110px;
+}
+
+.gen1 {
+  width: 800px;
+  margin-bottom: 20px;
 }

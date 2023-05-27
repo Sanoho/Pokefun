@@ -1,8 +1,8 @@
 // 'use client' makes this module client-side
 "use client";
 import Footer from "@/components/Footer";
-import Profile from "@/components/Profile";
-import Sidebar from "@/components/Sidebar";
+import Profile from "@/components/profile/Profile";
+import Sidebar from "@/components/sidebar/Sidebar";
 import PokemonTeam from "@/components/PokemonTeam";
 import "../styles/main.css";
 
