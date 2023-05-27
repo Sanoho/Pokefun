@@ -65,7 +65,7 @@
   }
 
   div#curve2_left {
-    width: 216px;
+    width: 250px;
     height: 451px;
     background-color: #c00d0d;
     float: to right;
@@ -179,7 +179,7 @@
   div#miniButtonGlass3 {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 30px;
     float: right;
 
     box-shadow: 0 0 10px #490000;
@@ -246,7 +246,7 @@
 
   div#screen {
     height: 245px;
-    width: 260px;
+    width: 295px;
     padding: 0 20px;
     background-color: #b0b0b0;
     float: left;
