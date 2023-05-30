@@ -7,7 +7,7 @@ import { useCurrentUser } from "@/app/context/currentUserContext";
 
 export default function RandomPoke() {
   const [pokemonList, setPokemonList] = React.useState([]);
-  const { currentUser, setCurrentUser } = useCurrentUser();
+  const { currentUser } = useCurrentUser();
 
   React.useEffect(() => {
     fetch("../api/findPokemon")
@@ -21,7 +21,7 @@ export default function RandomPoke() {
 
   const handleCollect = async (pokemon) => {
     if (currentUser.coins >= pokemon.cost) {
-      toast("Congrats!! You collected a Pokemon!!", {
+      toast(`Congrats!! You collected ${pokemon.name}!!`, {
         hideProgressBar: false,
         autoClose: 4600,
         type: "success",
@@ -40,9 +40,13 @@ export default function RandomPoke() {
         }),
       });
       const resp = await fetchdata.json();
-      setCurrentUser(resp.currentUser);
+      console.log(resp);
     } else {
-      alert("You do not have any coins!");
+      toast("You do not have enough coins!", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "error",
+      });
     }
   };
 

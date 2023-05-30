@@ -6,7 +6,7 @@ import PokemonCard from "./PokemonCard";
 export default function Pokemon() {
   const { currentUser } = useCurrentUser();
 
-  const myPokemon = currentUser.pokemons?.map((pokemon) => {
+  const myPokemon = currentUser.pokemons.map((pokemon) => {
     return <PokemonCard key={pokemon.pokemonId} pokemon={...pokemon}/>
   });
 

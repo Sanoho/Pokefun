@@ -3,6 +3,8 @@
 import "../../app/styles/memory.css";
 import { useState, useEffect } from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import pic1 from "../../public/memory/1.png";
 import pic2 from "../../public/memory/2.png";
 import pic3 from "../../public/memory/3.png";
@@ -44,9 +46,19 @@ export default function MemoryGame() {
   useEffect(() => {
     if (matchedCards.length == 16) {
       setGameWon(true);
+      toast("Congrats you won!!", {
+        hideProgressBar: false,
+        autoClose: 2000,
+        type: "success",
+      });
       winCoins();
-    } else if (moves === 30) {
+    } else if (moves === 28) {
       setGameOver(true);
+      toast("You lost, try again!!", {
+        hideProgressBar: false,
+        autoClose: 2000,
+        type: "error",
+      });
     }
   }, [moves]);
 
@@ -127,6 +139,7 @@ export default function MemoryGame() {
 
   return (
     <div className="container">
+      <ToastContainer />
       <div className="left-container">
         <div className="menu">
           <p>{`Moves - ${moves}`} / 28</p>
