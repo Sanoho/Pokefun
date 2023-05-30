@@ -15,7 +15,7 @@ model User {
   name                   String?
   email                  String  @unique
   picture                String?
-  age                    Int?
+  age                    Int @default(15)
   bio                    String?
   coins                  Int @default(20)
   badges                 Int @default(0)
@@ -24,6 +24,8 @@ model User {
   pokemons               PokemonTeam[]
   friendedBy             Friend[]  @relation("friendsWith")
   friendsWith            Friend[] @relation("friend")
+
+  @@unique([id, username])
 }
 
 model Pokemon {
@@ -54,14 +56,18 @@ model Pokemon {
   primeTypeColor     String?
   secTypeColor       String?
   trainers           PokemonTeam[]
+
+  @@unique([id, name, image])
 }
 
 model PokemonTeam {
-  pokemon    Pokemon @relation(fields: [pokemonId], references: [id])
-  pokemonId  Int
-  trainer    User @relation(fields: [trainerId], references: [id], onDelete: Cascade)
-  trainerId  Int
-  assignedAt DateTime @default(now())
+  pokemon       Pokemon @relation(fields: [pokemonId, pokemonName, pokeImg], references: [id, name, image])
+  pokemonId     Int
+  pokemonName   String
+  pokeImg       String
+  trainer       User @relation(fields: [trainerId], references: [id], onDelete: Cascade)
+  trainerId     Int
+  assignedAt    DateTime @default(now())
 
   @@id([pokemonId, trainerId])
 }
@@ -69,8 +75,9 @@ model PokemonTeam {
 model Friend {
   friend         User  @relation("friend" ,fields: [friendId], references: [id])
   friendId       Int
-  friendsWith    User  @relation("friendsWith" ,fields: [friendsWithId], references: [id])
+  friendsWith    User  @relation("friendsWith" ,fields: [friendsWithId, friendName], references: [id, username])
   friendsWithId  Int
+  friendName     String
   assignedAt     DateTime  @default(now())
   accepted       Boolean @default(false)
   

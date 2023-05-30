@@ -9,11 +9,11 @@
 }
 
 .trainerCard {
-  padding-left: 10px;
+  padding: 10px;
   border: yellow solid 1px;
   border-radius: 10px;
-  width: 100px;
-  height: 120px;
+  width: 120px;
+  height: 150px;
 }
 
 .trainerImg {
@@ -34,7 +34,67 @@
 
 .trainerContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   padding: 20px;
+  /* justify-content: space-around; */
+}
+
+.animate {
+  display: flex;
+  flex-direction: row;
+  border: solid 1px yellow;
+  border-radius: 15px;
+}
+
+.motionpic {
+  width: 300px;
+  border-radius: 240px;
+  padding: 40px;
+}
+
+.motiontop {
+  border-left: solid 1px yellow;
+  padding: 2px;
+}
+
+.motionhead {
+  color: white;
+  font-family: "Bangers";
+  font-weight: bold;
+  font-size: 30px;
+  border-bottom: solid 1px white;
+  text-shadow: 0 0 1px rgb(0, 0, 0), 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
+.motionrow {
+  font-family: "Bangers";
+  font-style: italic;
+  color: rgb(196, 195, 195);
+  font-size: 15px;
+}
+
+.motiondetails {
+  color: rgb(182, 182, 29);
+  font-size: 15px;
+  border-bottom: solid 1px white;
+}
+
+/* .motionadd {
+  border-radius: 20px;
+  padding: 1px 6px;
+  background-color: blue;
+  color: white;
+  font-size: 14px;
+} */
+
+.motion-button {
+  border: white 1px solid;
+  border-radius: 15px;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  font-size: small;
+  color: yellow;
 }

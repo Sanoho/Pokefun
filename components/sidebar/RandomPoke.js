@@ -20,26 +20,30 @@ export default function RandomPoke() {
     .slice(0, 9);
 
   const handleCollect = async (pokemon) => {
-    toast("Congrats!! You collected a Pokemon!!", {
-      hideProgressBar: false,
-      autoClose: 4600,
-      type: "success",
-    });
-    const updatedCoins = currentUser.coins - pokemon.cost;
-    const fetchdata = await fetch("../api/createPokemonTeam", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        pokemonId: pokemon.id,
-        trainerId: currentUser.id,
-        currentUser: currentUser,
-        coins: updatedCoins,
-      }),
-    });
-    const resp = await fetchdata.json();
-    setCurrentUser(resp.currentUser);
+    if (currentUser.coins >= pokemon.cost) {
+      toast("Congrats!! You collected a Pokemon!!", {
+        hideProgressBar: false,
+        autoClose: 4600,
+        type: "success",
+      });
+      const updatedCoins = currentUser.coins - pokemon.cost;
+      const fetchdata = await fetch("../api/createPokemonTeam", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pokemonId: pokemon.id,
+          trainerId: currentUser.id,
+          currentUser: currentUser,
+          coins: updatedCoins,
+        }),
+      });
+      const resp = await fetchdata.json();
+      setCurrentUser(resp.currentUser);
+    } else {
+      alert("You do not have any coins!");
+    }
   };
 
   const randomizedList = cutPokemonList.map((pokemon) => {

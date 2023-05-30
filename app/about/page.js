@@ -15,7 +15,7 @@ export default async function About() {
         />
       </div>
       <div className="content">
-        <h1 className="header">About me</h1>
+        <h1 className="header1">About me</h1>
         <p className="text">
           Hello, my name is Tim Hoang and I am a software engineer. I hope you
           enjoyed this app as this was created as my capstone project. As a fan
@@ -27,7 +27,7 @@ export default async function About() {
         </p>
         <div className="container">
           <div className="links">
-            <h1 className="linkheaders">Github | LinkedIn | Medium</h1>
+            <h2 className="linkheaders">Github | LinkedIn | Medium</h2>
             <a href="https://github.com/Sanoho">
               <div className="pokeball3"></div>
             </a>

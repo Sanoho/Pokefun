@@ -40,12 +40,12 @@ export function UserContextProvider({ children }) {
       username: userData.username,
       name: userData.name,
       picture: userData.picture,
-      pokemons: [userData.pokemons],
+      pokemons: userData.pokemons,
       age: userData.age,
       bio: userData.bio,
       coins: userData.coins,
       badges: userData.badges,
-      friendsWith: [userData.friendsWith],
+      friendsWith: userData.friendsWith,
     });
     return userData;
   };

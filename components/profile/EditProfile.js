@@ -81,7 +81,7 @@ export default function EditProfie() {
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       name="age"
-                      type="integer"
+                      type="number"
                       placeholder="age"
                       value={currentUser.age}
                       onChange={(e) => handleChange(e)}
@@ -90,7 +90,7 @@ export default function EditProfie() {
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      name="pic"
+                      name="picture"
                       type="text"
                       placeholder="image url"
                       value={currentUser.picture}

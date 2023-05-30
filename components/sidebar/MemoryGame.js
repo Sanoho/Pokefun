@@ -79,6 +79,8 @@ export default function MemoryGame() {
           updatedBalance,
         }),
       });
+    } else {
+      alert("You do not have any coins!");
     }
   };
 
