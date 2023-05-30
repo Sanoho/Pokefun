@@ -5,6 +5,8 @@ export default function EditProfie() {
   const { currentUser, setCurrentUser } = useCurrentUser();
   const [openEdit, setOpenEdit] = React.useState(false);
 
+  console.log(currentUser);
+
   const handleEditOpen = () => {
     setOpenEdit(true);
   };
@@ -20,7 +22,7 @@ export default function EditProfie() {
           },
           body: JSON.stringify({
             username: currentUser.username,
-            age: currentUser.age,
+            age: parseInt(currentUser.age),
             picture: currentUser.picture,
             bio: currentUser.bio,
           }),

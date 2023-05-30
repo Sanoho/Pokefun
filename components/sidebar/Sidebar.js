@@ -21,7 +21,6 @@ const Sidebar = () => {
         <Link href="/pokemart">
           <div className="sideLinks">PokeMart</div>
         </Link>
-        <div className="sideLinks">Friends</div>
       </div>
     </div>
   );

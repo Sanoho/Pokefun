@@ -4,6 +4,14 @@
   flex-wrap: wrap;
 }
 
+.pokeId {
+  font-family: "Bangers";
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: yellow;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+}
+
 .pokename {
   font-family: "Bangers";
   font-size: 30px;

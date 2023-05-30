@@ -13,7 +13,7 @@ export default function GetTrainers() {
       .then((trainers) => setTrainerList(trainers));
   }, []);
 
-  const trainer = trainerList.map((trainer) => {
+  const trainers = trainerList.map((trainer) => {
     return (
       <div>
         <motion.div
@@ -67,6 +67,7 @@ export default function GetTrainers() {
       </div>
     );
   });
+  console.log(selectedId);
 
-  return <motion.div className="trainerContainer">{trainer}</motion.div>;
+  return <motion.div className="trainerContainer">{trainers}</motion.div>;
 }

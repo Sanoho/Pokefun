@@ -6,3 +6,39 @@
   font-size: 40px;
   text-align: center;
 }
+
+.get {
+  color: white;
+  font-family: "Bangers";
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  height: 45px;
+  text-align: center;
+  transition: 0.4s ease-in-out;
+  border-radius: 50px;
+}
+
+.get:hover {
+  scale: 1.2;
+}
+
+.mainPoke {
+  width: 800px;
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -20%;
+}
+
+.cardImg {
+  height: 140px;
+}
+
+.pokeName {
+  font-family: "Bangers";
+  color: yellow;
+  letter-spacing: 1px;
+}

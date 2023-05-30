@@ -15,7 +15,7 @@ model User {
   name                   String?
   email                  String  @unique
   picture                String?
-  age                    Int @default(15)
+  age                    Int?
   bio                    String?
   coins                  Int @default(20)
   badges                 Int @default(0)

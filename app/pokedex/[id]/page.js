@@ -65,18 +65,18 @@ export default function PokemonPage({ searchParams }) {
       </div>
       <div id="right">
         <div id="stats">
+          <strong>Pokédex Entry</strong>
+          <br />
+          <strong>Id:</strong> {searchParams.id}
+          <br />
           <strong>Name:</strong> {searchParams.name}
           <br />
-          <strong>Type:</strong> {searchParams.type}
-          {""}
+          <strong>Type:</strong> {searchParams.type}{" "}
           {searchParams.secondaryType}
           <br />
           <strong>Height:</strong> {searchParams.height}
           <br />
           <strong>Weight:</strong> {searchParams.weight}
-          <br />
-          <br />
-          <strong>Pokédex Entry</strong>
           <br />
         </div>
         <div id="blueButtons1">

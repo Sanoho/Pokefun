@@ -16,6 +16,7 @@ export default async function PokeDex() {
           className="max-w-sm p-4 m-4 rounded overflow-hidden shadow-2xl bg-slate-300 transform transition-all duration-200 hover:scale-95 z-10 cursor-pointer"
         >
           <div>
+            <div className="pokeId">ID: {pokemon.id}</div>
             <div>
               <img className="h-80" alt="Pokemon pic" src={pokemon.image} />
             </div>

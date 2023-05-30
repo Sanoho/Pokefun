@@ -1,23 +1,46 @@
 import React from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
+import PokemonCard from "./PokemonCard";
+import '../app/styles/myPokemon.css'
+import Link from "next/link";
 
 export default function PokemonTeam() {
-  const currentUser = useCurrentUser();
+  const { currentUser } = useCurrentUser();
   const [team, setTeam] = React.useState([]);
+
+  React.useEffect(() => {
+    setTeam(currentUser.pokemons)
+    // const fetchData = async() => {
+    //   try {
+    //     const resp = await fetch('/api/findOrCreate')
+    //     const data = await resp.json()
+    //     setTeam(data.pokemons);
+    //   } catch (error) {
+    //     console.error('Error fetching data:', error)
+    //   }
+    // }
+    // fetchData()
+  }, []);
+
+
+  const randomTeam = team.sort(() => 0.5 - Math.random()).slice(0, 6);
+
+  const showPokemon = randomTeam.map((pokemon) => {
+    return <PokemonCard key={pokemon.pokemonId} pokemon={...pokemon}/>
+  })
 
   if (team.length <= 0) {
     return (
       <div>
-        <h1 className="font-bold text-2xl tracking-wide uppercase">
+        <Link href='/pokemart'>
+        <h1 className="get">
           Go get some pokemon!!
         </h1>
+        </Link>
       </div>
     );
   }
 
-  return (
-    <div className="col-start-2 col-end-5 text-white">
-      <h1>{team}</h1>
-    </div>
-  );
+  return<div className="mainPoke">{showPokemon}</div>
+;
 }
