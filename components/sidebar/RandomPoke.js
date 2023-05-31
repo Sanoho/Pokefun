@@ -20,6 +20,7 @@ export default function RandomPoke() {
     .slice(0, 9);
 
   const handleCollect = async (pokemon) => {
+    // if (pokemon.id === currentUser.pokemons)
     if (currentUser.coins >= pokemon.cost) {
       toast(`Congrats!! You collected ${pokemon.name}!!`, {
         hideProgressBar: false,
