@@ -21,9 +21,12 @@ module.exports = async (req, res) => {
       },
     });
 
-    return res
-      .status(200)
-      .json({ success: true, pokemonTeam, currentUser: updateCoins });
+    return res.status(200).json({
+      success: true,
+      pokemonTeam,
+      currentUser: currentUser,
+      updatedCoins: updateCoins,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Something went wrong" });

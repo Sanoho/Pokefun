@@ -7,7 +7,7 @@ import { useCurrentUser } from "@/app/context/currentUserContext";
 
 export default function RandomPoke() {
   const [pokemonList, setPokemonList] = React.useState([]);
-  const { currentUser } = useCurrentUser();
+  const { currentUser, setCurrentUser } = useCurrentUser();
 
   React.useEffect(() => {
     fetch("../api/findPokemon")
@@ -41,6 +41,7 @@ export default function RandomPoke() {
       });
       const resp = await fetchdata.json();
       console.log(resp);
+      // setCurrentUser(resp.currentUser);
     } else {
       toast("You do not have enough coins!", {
         hideProgressBar: true,
