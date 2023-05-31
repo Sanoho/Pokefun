@@ -20,7 +20,11 @@ module.exports = async (req, res) => {
         coins: coins,
       },
       include: {
-        pokemons: true,
+        pokemons: {
+          include: {
+            pokemon: true,
+          },
+        },
         friendsWith: true,
       },
     });

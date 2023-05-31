@@ -57,14 +57,12 @@ model Pokemon {
   secTypeColor       String?
   trainers           PokemonTeam[]
 
-  @@unique([id, name, image])
+  @@unique([id])
 }
 
 model PokemonTeam {
-  pokemon       Pokemon @relation(fields: [pokemonId, pokemonName, pokeImg], references: [id, name, image])
+  pokemon       Pokemon @relation(fields: [pokemonId], references: [id])
   pokemonId     Int
-  pokemonName   String
-  pokeImg       String
   trainer       User @relation(fields: [trainerId], references: [id], onDelete: Cascade)
   trainerId     Int
   assignedAt    DateTime @default(now())

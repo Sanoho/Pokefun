@@ -7,7 +7,11 @@ module.exports = async (req, res) => {
       email,
     },
     include: {
-      pokemons: true,
+      pokemons: {
+        include: {
+          pokemon: true,
+        },
+      },
       friendsWith: true,
     },
   });

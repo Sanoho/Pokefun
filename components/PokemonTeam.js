@@ -1,4 +1,3 @@
-import React from "react";
 import { useCurrentUser } from "@/app/context/currentUserContext";
 import PokemonCard from "./PokemonCard";
 import '../app/styles/myPokemon.css'
@@ -6,11 +5,7 @@ import Link from "next/link";
 
 export default function PokemonTeam() {
   const { currentUser } = useCurrentUser();
-  const [team, setTeam] = React.useState([]);
-
-  React.useEffect(() => {
-    setTeam(currentUser.pokemons)
-  }, []);
+  const team = currentUser.pokemons
 
   const randomTeam = team.sort(() => 0.5 - Math.random()).slice(0, 6);
 
