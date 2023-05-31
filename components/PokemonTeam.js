@@ -22,7 +22,6 @@ export default function PokemonTeam() {
     // fetchData()
   }, []);
 
-  console.log(team)
   const randomTeam = team.sort(() => 0.5 - Math.random()).slice(0, 6);
 
   const showPokemon = randomTeam.map((pokemon) => {

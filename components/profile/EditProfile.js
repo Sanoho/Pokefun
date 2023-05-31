@@ -5,8 +5,6 @@ export default function EditProfie() {
   const { currentUser, setCurrentUser } = useCurrentUser();
   const [openEdit, setOpenEdit] = React.useState(false);
 
-  console.log(currentUser);
-
   const handleEditOpen = () => {
     setOpenEdit(true);
   };

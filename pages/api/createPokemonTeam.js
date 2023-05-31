@@ -19,6 +19,10 @@ module.exports = async (req, res) => {
       data: {
         coins: coins,
       },
+      include: {
+        pokemons: true,
+        friendsWith: true,
+      },
     });
 
     return res.status(200).json({

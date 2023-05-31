@@ -40,8 +40,7 @@ export default function RandomPoke() {
         }),
       });
       const resp = await fetchdata.json();
-      console.log(resp);
-      // setCurrentUser(resp.currentUser);
+      setCurrentUser(resp.updatedCoins);
     } else {
       toast("You do not have enough coins!", {
         hideProgressBar: true,
