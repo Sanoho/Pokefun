@@ -10,16 +10,6 @@ export default function PokemonTeam() {
 
   React.useEffect(() => {
     setTeam(currentUser.pokemons)
-    // const fetchData = async() => {
-    //   try {
-    //     const resp = await fetch('/api/findOrCreate')
-    //     const data = await resp.json()
-    //     setTeam(data.pokemons);
-    //   } catch (error) {
-    //     console.error('Error fetching data:', error)
-    //   }
-    // }
-    // fetchData()
   }, []);
 
   const randomTeam = team.sort(() => 0.5 - Math.random()).slice(0, 6);

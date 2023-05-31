@@ -2,6 +2,7 @@
 import "../../styles/pokeId.css";
 
 export default function PokemonPage({ searchParams }) {
+  console.log(searchParams);
   return (
     <div id="pokedex">
       <div id="left">
