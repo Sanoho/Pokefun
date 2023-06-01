@@ -11,7 +11,7 @@ export default function PokemonTeam() {
   const [selectedPokemon, setSelectedPokemon] = React.useState(null);
   const team = currentUser.pokemons;
 
-  const randomTeam = team.sort(() => 0.5 - Math.random()).slice(0, 6);
+  const randomTeam = team?.sort(() => 0.5 - Math.random()).slice(0, 6);
 
   if (team.length <= 0) {
     return (
