@@ -157,7 +157,7 @@ export default function MemoryGame() {
             Reset
           </button>
         )}
-        <div className="direction">
+        <div className="directions">
           Play the game to win some coins. It cost 2 to play but you can gain 5
           in return. Make sure to pay attention and memorize where the cards
           are. If you don't complete the game in 28 moves, you lose. Good luck

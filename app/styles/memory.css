@@ -11,9 +11,14 @@
 }
 
 .container {
-  margin-left: 100px;
+  margin-left: 70px;
   display: flex;
   flex-direction: row;
+  /* align-items: center; */
+}
+
+.left-container {
+  margin-right: -20px;
 }
 
 .board {
@@ -23,12 +28,13 @@
   row-gap: 5px;
   justify-items: center;
   align-items: center;
-  margin-left: 35%;
+  margin-left: 20%;
+  margin-right: 20px;
 }
 .card {
   text-align: center;
-  height: 200px;
-  width: 130px;
+  height: 140px;
+  width: 90px;
   font-size: 36px;
   font-weight: bold;
   position: relative;
@@ -39,10 +45,10 @@
 }
 
 .card-img {
-  margin-top: 15px;
-  margin-left: 8px;
-  width: 120px;
-  height: 160px;
+  margin-top: 20px;
+  /* margin-left: px; */
+  width: 100px;
+  height: 100px;
   border-radius: 20px;
 }
 
@@ -113,6 +119,7 @@
   border-radius: 50px;
   padding: 3px 10px;
   margin-top: 30px;
+  border: 1px yellow solid;
 }
 
 .play-btn:hover {
@@ -130,6 +137,7 @@
   border-radius: 50px;
   padding: 3px 10px;
   margin-top: 30px;
+  border: 1px yellow solid;
 }
 
 .reset-btn:hover {
@@ -138,17 +146,17 @@
   transition: 0.4s ease-in-out;
 }
 
-.direction {
+.directions {
   color: white;
   font-size: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .ps {
   color: white;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .bg {
-  margin-top: 60px;
+  margin-top: 50px;
 }

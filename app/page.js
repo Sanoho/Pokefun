@@ -44,7 +44,7 @@ export default async function Home() {
           className="mew"
           src="https://media.tenor.com/L5qC_TTSMJMAAAAi/mew-pokemon.gif"
         />
-        <audio className="audio" src="./pokeCenter.mp3" controls autoPlay />
+        <audio className="audio" src="./poketheme.mp3" controls autoPlay />
       </div>
       <ToastContainer />
     </main>

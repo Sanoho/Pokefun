@@ -11,9 +11,9 @@ export default function PokemonTeam() {
   const [selectedPokemon, setSelectedPokemon] = React.useState(null);
   const team = currentUser.pokemons;
 
-  const randomTeam = team?.sort(() => 0.5 - Math.random()).slice(0, 6);
+  const randomTeam = team && team.sort(() => 0.5 - Math.random()).slice(0, 6);
 
-  if (team.length <= 0) {
+  if (team && team.length === 0) {
     return (
       <div>
         <Link href="/pokemart">
@@ -24,25 +24,26 @@ export default function PokemonTeam() {
   }
   return (
     <div className="pokemonContainer1">
-      {randomTeam.map((pokemon) => {
-        return (
-          <motion.div
-            className="pokeCard"
-            key={pokemon.pokemon.id}
-            layoutId={pokemon.pokemon.id}
-            onClick={() => setSelectedPokemon(pokemon.pokemon)}
-          >
-            <motion.img
-              className="pokemonImg"
-              src={pokemon.pokemon.image}
-              alt="pokemon pic"
-            />
-            <motion.h5 className="pokemonName">
-              {pokemon.pokemon.name}
-            </motion.h5>
-          </motion.div>
-        );
-      })}
+      {randomTeam &&
+        randomTeam.map((pokemon) => {
+          return (
+            <motion.div
+              className="pokeCard"
+              key={pokemon.pokemon.id}
+              layoutId={pokemon.pokemon.id}
+              onClick={() => setSelectedPokemon(pokemon.pokemon)}
+            >
+              <motion.img
+                className="pokemonImg"
+                src={pokemon.pokemon.image}
+                alt="pokemon pic"
+              />
+              <motion.h5 className="pokemonName">
+                {pokemon.pokemon.name}
+              </motion.h5>
+            </motion.div>
+          );
+        })}
       <AnimatePresence>
         {selectedPokemon && (
           <>
