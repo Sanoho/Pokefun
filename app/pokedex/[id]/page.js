@@ -68,8 +68,8 @@ export default function PokemonPage({ searchParams }) {
         <div id="stats">
           <strong>Pokédex Entry</strong>
           <br />
-          {/* <strong>Id:</strong> {searchParams.id}
-          <br /> */}
+          {/* <strong>Id:</strong> {searchParams.id} */}
+          <br />
           <strong>Name:</strong> {searchParams.name}
           <br />
           <strong>Type:</strong> {searchParams.type}{" "}
