@@ -20,28 +20,38 @@ export default function RandomPoke() {
     .slice(0, 9);
 
   const handleCollect = async (pokemon) => {
-    // if (pokemon.id === currentUser.pokemons)
+    const findPokemon = currentUser.pokemons.find(
+      (poke) => poke.pokemonId === pokemon.id
+    );
     if (currentUser.coins >= pokemon.cost) {
-      toast(`Congrats!! You collected ${pokemon.name}!!`, {
-        hideProgressBar: false,
-        autoClose: 4600,
-        type: "success",
-      });
-      const updatedCoins = currentUser.coins - pokemon.cost;
-      const fetchdata = await fetch("../api/createPokemonTeam", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          pokemonId: pokemon.id,
-          trainerId: currentUser.id,
-          currentUser: currentUser,
-          coins: updatedCoins,
-        }),
-      });
-      const resp = await fetchdata.json();
-      setCurrentUser(resp.updatedCoins);
+      if (findPokemon) {
+        toast(`You already collected ${pokemon.name}!!`, {
+          hideProgressBar: false,
+          autoClose: 2600,
+          type: "error",
+        });
+      } else {
+        toast(`Congrats!! You collected ${pokemon.name}!!`, {
+          hideProgressBar: false,
+          autoClose: 4600,
+          type: "success",
+        });
+        const updatedCoins = currentUser.coins - pokemon.cost;
+        const fetchdata = await fetch("../api/createPokemonTeam", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            pokemonId: pokemon.id,
+            trainerId: currentUser.id,
+            currentUser: currentUser,
+            coins: updatedCoins,
+          }),
+        });
+        const resp = await fetchdata.json();
+        setCurrentUser(resp.updatedCoins);
+      }
     } else {
       toast("You do not have enough coins!", {
         hideProgressBar: true,
