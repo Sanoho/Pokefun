@@ -1,6 +1,7 @@
 import avatar from "../../public/about/avatar.png";
 import gen1 from "../../public/about/gen1.png";
 import Image from "next/image";
+import Link from "next/link";
 import "../styles/about.css";
 
 export default async function About() {
@@ -28,15 +29,24 @@ export default async function About() {
         <div className="container">
           <div className="links">
             <h2 className="linkheaders">Github | LinkedIn | Medium</h2>
-            <a href="https://github.com/Sanoho">
-              <div className="pokeball3"></div>
-            </a>
-            <a href="https://www.linkedin.com/in/timothynhoang/">
-              <div className="pokeball3"></div>
-            </a>
-            <a href="https://medium.com/@sanohoang">
-              <div className="pokeball3"></div>
-            </a>
+            <Link href="https://github.com/Sanoho" legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <div className="pokeball3"></div>
+              </a>
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/timothynhoang/"
+              legacyBehavior
+            >
+              <a target="_blank" rel="noopener noreferrer">
+                <div className="pokeball3"></div>
+              </a>
+            </Link>
+            <Link href="https://medium.com/@sanohoang" legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <div className="pokeball3"></div>
+              </a>
+            </Link>
           </div>
           <div className="gen1container">
             <Image src={gen1} alt="all 151 pokemon" className="gen1" />
