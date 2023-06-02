@@ -13,7 +13,7 @@ export default function PokemonTeam() {
 
   const randomTeam = team && team.sort(() => 0.5 - Math.random()).slice(0, 6);
 
-  if (team && team.length === 0) {
+  if (randomTeam && randomTeam.length === 0) {
     return (
       <div>
         <Link href="/pokemart">

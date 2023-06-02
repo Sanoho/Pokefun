@@ -20,7 +20,7 @@ export default function RandomPoke() {
     .slice(0, 9);
 
   const handleCollect = async (pokemon) => {
-    const findPokemon = currentUser.pokemons.find(
+    const findPokemon = currentUser.pokemons?.find(
       (poke) => poke.pokemonId === pokemon.id
     );
     if (currentUser.coins >= pokemon.cost) {

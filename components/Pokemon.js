@@ -10,7 +10,7 @@ export default function Pokemon() {
 
   return (
     <div className="pokemonContainer">
-      {currentUser.pokemons.map((pokemon) => {
+      {currentUser.pokemons?.map((pokemon) => {
         return (
           <motion.div
             className="pokeCard"
